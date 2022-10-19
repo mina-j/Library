@@ -1,0 +1,61 @@
+<body>
+  <div id="container">
+    <ul id="menu">
+      <li><a routerLink=''><img height="35px" width="35px" src="/assets/knjigeImg/default.png" alt="logo"> </a>
+      </li>
+      <li><a routerLink=''>Home</a>
+      </li>
+      <li><a routerLink='login'>Login</a>
+      </li>
+      <li><a routerLink='register'>Registracija</a></li>
+      <li><a routerLink='search'>Pretraga </a>
+      </li>
+    </ul>
+  </div>
+
+
+  <br />
+  <h2>Top 3 knjige:</h2>
+  <br />
+  <div class="center">
+    <div class="gallery-wrapper">
+      <div class="gallery-scroll">
+        <div class="gallery">
+          <div class="item">
+            <img height='100' width="70" src='/assets/knjigeImg/{{books[0].cover}}' alt='{{books[0].title}}'>
+            <br />{{books[0].title}}
+            <br />{{books[0].author}}
+             <br/><img class="ocena" height='20px' width="20px" src='/assets/star.png'>
+            <span *ngIf="books[0].score>0" class="ocena"> {{books[0].score}}</span>
+            <span *ngIf="books[0].score==0" class="ocena"> Nema ocene</span>
+          </div>
+          <div class="item">
+            <img height='100' width="70" src='/assets/knjigeImg/{{books[1].cover}}' alt='{{books[1].title}}'>
+            <br />{{books[1].title}}
+            <br />{{books[1].author}}
+             <br/><img class="ocena" height='20px' width="20px" src='/assets/star.png'>
+             <span *ngIf="books[1].score>0" class="ocena"> {{books[1].score}}</span>
+            <span *ngIf="books[1].score==0" class="ocena"> Nema ocene</span>
+          </div>
+          <div class="item">
+            <img height='100' width="70" src='/assets/knjigeImg/{{books[2].cover}}' alt='{{books[2].title}}'>
+            <br />{{books[2].title}}
+            <br />{{books[2].author}}
+             <br/><img class="ocena" height='20px' width="20px" src='/assets/star.png'>
+             <span *ngIf="books[2].score>0" class="ocena"> {{books[2].score}}</span>
+            <span *ngIf="books[2].score==0" class="ocena"> Nema ocene</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+
+  <div class="footer">
+    <div class="footer-copyright">
+      Mina Janković Odsek za softversko inženjerstvo Elektrotehničkog fakulteta Univerziteta u
+      Beogradu
+    </div>
+  </div>
+
+</body>

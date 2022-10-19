@@ -1,0 +1,123 @@
+<body>
+    <div id="container" *ngIf='!isUser'>
+        <ul id="menu">
+            <li><a routerLink=''><img height="35px" width="35px" src="/assets/knjigeImg/default.png" alt="logo"> </a>
+            </li>
+            <li><a routerLink=''>Home</a>
+            </li>
+            <li><a routerLink='/login'>Login</a>
+            </li>
+            <li><a routerLink='/register'>Registracija</a></li>
+            <li><a routerLink='/search'>Pretraga:</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="container" *ngIf='isUser'>
+        <ul id="menu">
+            <li><a routerLink='/profil'><img height="45px" width="45px" src="/assets/userImg/{{cover}}"
+                        alt="logo"> </a>
+            </li>
+            <li><a routerLink='/admin'>Home</a>
+            </li>
+            <li><a routerLink=''>Odjava</a>
+            </li>
+            <li><a routerLink='/korisnici'>Korisnici</a>
+            </li>
+            <li><a routerLink='/search'>Pretraga</a>
+            </li>
+        </ul>
+    </div>
+    <br />
+    <h2>Registracija: </h2>
+    <br/>
+    <div class="center">
+        <div class="gallery">
+            <table>
+                <tr>
+                    <td>Ime:</td>
+                    <td>
+                        <input type='text' name='firstname' [(ngModel)]='firstname'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Prezime:</td>
+                    <td>
+                        <input type='text' name='lastname' [(ngModel)]='lastname'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Korisnicko ime:</td>
+                    <td>
+                        <input type='text' name='username' [(ngModel)]='username'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Lozinka:</td>
+                    <td>
+                        <input type='text' name='password' [(ngModel)]='password'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Adresa:</td>
+                    <td>
+                        <input type='text' name='address' [(ngModel)]='address'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Telefon:</td>
+                    <td>
+                        <input type='text' name='tel' [(ngModel)]='tel'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>E-mail:</td>
+                    <td>
+                        <input type='text' name='email' [(ngModel)]='email'>
+                    </td>
+                </tr>
+                <br />
+                <tr>
+                    <td>Profilna slika:</td>
+                    <td>
+                        <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+
+                        <div class="file-upload">                            
+                            <div *ngIf="fileName">
+
+                                <img height="45px" width="45px" src="/assets/userImg/{{fileName}}" alt="slika">
+                            </div>
+                            <div *ngIf="!fileName" class="link">
+                                No file uploaded yet.
+                                
+                            </div>
+                            <button  class="btn" (click)="fileUpload.click()">Izaberi</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='2' class="center">
+                        <br />
+                        <button class="btn" (click)='register()'>Register</button>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class='error' colspan='2'>{{message}}</td>
+                </tr>
+                <tr>
+                    <td colspan='2' *ngIf="!strong" class='error'>Lozinka nije u dobrom formatu!</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <br />
+    <div class="footer">
+        <div class="footer-copyright">
+            Mina Janković Odsek za softversko inženjerstvo Elektrotehničkog fakulteta Univerziteta u
+            Beogradu
+        </div>
+    </div>
+</body>

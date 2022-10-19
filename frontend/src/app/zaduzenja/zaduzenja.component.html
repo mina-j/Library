@@ -1,0 +1,58 @@
+<body>
+    <div id="container">
+        <ul id="menu">
+            <li><a routerLink='/profil'><img height="45px" width="45px" src="/assets/userImg/{{user.picture}}"
+                        alt="logo"> </a>
+            </li>
+            <li><a routerLink='/{{type}}'>Home</a>
+            </li>
+            <li><a routerLink=''>Odjava</a>
+            </li>
+            <li><a routerLink='/zaduzenja'>Zaduzenja</a>
+            </li>
+            <li><a routerLink='/istorija'>Istorija zaduzenja</a>
+            </li>
+            <li *ngIf="type=='moderator'"><a routerLink='/dodaj'>Dodaj knjigu </a>
+            </li>
+            <li><a routerLink='/search'>Pretraga </a>
+            </li>
+        </ul>
+    </div>
+    <br />
+    <div *ngIf='books.length>0'>
+        <div class="center" *ngFor='let book of books'>
+            <div  *ngFor='let p of book.person'>
+                <div class="gallery" *ngIf='p.username==user.username && p.days'>
+                    <div class="item">
+                    <img height='600' width="400" src='/assets/knjigeImg/{{book.cover}}' alt='{{book.title}}'>
+                    <br />
+                    Naziv: {{book.title}}
+                    <br />
+                    Autor: {{book.author}}
+                    <br />
+                    Preostalo dana za predaju:<span *ngIf='p.days<0' class='error'> {{p.days}}</span>
+                    <span *ngIf='p.days>=0'> {{p.days}}</span>
+                    <br />
+                    <br/>
+                    <button class="btn" (click)='details(book.title)'>O knjizi</button> &nbsp; &nbsp; &nbsp; <button class="btn" (click)='returnBook(book.title)'>Vrati knjigu</button>
+                </div>
+                </div>
+            </div>
+<br/>
+        </div>
+    </div>
+    <div class="center">
+    <div *ngIf='books.length==0' class="gallery">
+        <h2>Nemate trenutno zaduzenja. </h2>
+    </div>
+</div>
+    <br />
+
+    <div class="footer">
+        <div class="footer-copyright">
+            Mina Janković Odsek za softversko inženjerstvo Elektrotehničkog fakulteta Univerziteta u
+            Beogradu
+        </div>
+    </div>
+
+</body>

@@ -1,0 +1,86 @@
+<body>
+    <div id="container">
+      <ul id="menu">
+        <li><a routerLink='/profil'><img height="45px" width="45px" src="/assets/userImg/{{user.picture}}" alt="logo"> </a>
+        </li>
+        <li><a routerLink='/{{type}}'>Home</a>
+        </li>
+        <li><a routerLink=''>Odjava</a>
+        </li>
+        <li><a routerLink='/zaduzenja'>Zaduzenja</a>
+        </li>
+        <li><a routerLink='/istorija'>Istorija zaduzenja</a>
+        </li>
+        <li *ngIf="type=='moderator'"><a routerLink='/dodaj'>Dodaj knjigu </a>
+        </li>
+        <li><a routerLink='/search'>Pretraga </a>
+        </li>
+      </ul>
+    </div>
+    <br/>
+
+    <div class="center">
+        <div class="gallery">
+        <table>
+            <tr>
+                <td>Ime:</td>
+                <td>
+                    {{user.firstname}}
+                </td>
+            </tr>
+            <tr>
+                <td>Prezime:</td>
+                <td>
+                    {{user.lastname}}
+                </td>
+            </tr>
+            <tr>
+                <td>Korisnicko ime:</td>
+                <td>
+                    {{user.username}}
+                </td>
+            </tr>
+            <tr>
+                <td>Lozinka:</td>
+                <td>
+                    {{user.password}}
+                </td>
+            </tr>
+            <tr>
+                <td>Adresa:</td>
+                <td>
+                    {{user.address}}
+                </td>
+            </tr>
+            <tr>
+                <td>Telefon:</td>
+                <td>
+                    {{user.tel}}
+                </td>
+            </tr>
+            <tr>
+                <td>E-mail:</td>
+                <td>
+                    {{user.email}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a class="link" routerLink='/login/change'>Promena lozinke </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </div>
+    <br/>
+    
+
+  
+    <div class="footer">
+      <div class="footer-copyright">
+        Mina Janković Odsek za softversko inženjerstvo Elektrotehničkog fakulteta Univerziteta u
+        Beogradu
+      </div>
+    </div>
+  
+  </body>

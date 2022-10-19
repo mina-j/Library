@@ -1,0 +1,67 @@
+<body>
+    <div id="container">
+      <ul id="menu">
+        <li><a routerLink='/profil'><img height="45px" width="45px" src="/assets/userImg/{{user.picture}}" alt="logo"> </a>
+        </li>
+        <li><a routerLink='/{{type}}'>Home</a>
+        </li>
+        <li><a routerLink=''>Odjava</a>
+        </li>
+        <li><a routerLink='/zaduzenja'>Zaduzenja</a>
+        </li>
+        <li><a routerLink='/istorija'>Istorija zaduzenja</a>
+        </li>
+        <li *ngIf="type=='moderator'"><a routerLink='/dodaj'>Dodaj knjigu </a>
+        </li>
+        <li><a routerLink='/search'>Pretraga </a>
+        </li>
+      </ul>
+    </div>
+    <br/>
+    <button class="btn" (click)='returnedSort()'>Sort po datumu vracanja</button> &nbsp; <button class="btn" (click)='autorSort()'>Sort po autoru</button>
+    &nbsp; <button class="btn" (click)='bookSort()'>Sort po imenu knjiige</button>
+    <br/>
+        <br />
+        
+            <div class="center">
+                <div class="gallery">
+            <table class="customTable">
+                <tr>
+                    <th>Ime knjige:</th>
+                    <th>Autor:</th>
+                    <th>Rok za vracanje:</th>
+                    <th>Datum vracanja:</th>
+                    <th></th>
+                </tr>
+                <tr *ngFor='let p of loan' >
+                    <td >
+                        {{p.book_name}}
+                    </td>
+                    <td >
+                        {{p.author}}
+                    </td>
+                    <td>
+                        {{p.deadline | date:'yyyy-MM-dd'}}
+                    </td>
+                    <td >
+                        {{p.returned}} 
+                    </td>
+                    <td >
+                        <button class="btn" (click)='details(p.book_name)'>O knjizi</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+   
+</div>
+        <br />
+    <br/>
+  
+    <div class="footer">
+      <div class="footer-copyright">
+        Mina Janković Odsek za softversko inženjerstvo Elektrotehničkog fakulteta Univerziteta u
+        Beogradu
+      </div>
+    </div>
+  
+  </body>

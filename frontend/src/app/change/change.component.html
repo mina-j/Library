@@ -1,0 +1,90 @@
+<body>
+
+    <div id="container" *ngIf='!isUser' class='link'>
+        <ul id="menu">
+            <li><a routerLink=''><img height="35px" width="35px" src="/assets/knjigeImg/default.png" alt="logo"> </a>
+            </li>
+            <li><a routerLink='{{type}}'>Home</a>
+            </li>
+            <li><a routerLink='/login'>Login</a>
+            </li>
+            <li><a routerLink='/register'>Registracija</a></li>
+            <li><a routerLink='/search'>Pretraga </a>
+            </li>
+        </ul>
+    </div>
+    <div id="container" *ngIf='isUser'>
+        <ul id="menu">
+            <li><a routerLink='/profil'><img height="45px" width="45px" src="/assets/userImg/{{user.picture}}" alt="logo"> </a>
+            </li>
+            <li><a routerLink='/{{type}}'>Home</a>
+            </li>
+            <li><a routerLink=''>Odjava</a>
+            </li>
+            <li><a routerLink='/zaduzenja'>Zaduzenja</a>
+            </li>
+            <li><a routerLink='/istorija'>Istorija zaduzenja</a>
+            </li>
+            <li *ngIf="type=='moderator'"><a routerLink='/dodaj'>Dodaj knjigu </a>
+            </li>
+            <li><a routerLink='/search'>Pretraga </a>
+            </li>
+          </ul>
+    </div>
+    <div class="center">
+        <br />
+        <div class="gallery">
+            <table>
+                <tr *ngIf='!isUser'>
+                    <td>Username:</td>
+                    <td>
+                        <input type='text' name='username' [(ngModel)]='username'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td>
+                        <input type='password' name='password' [(ngModel)]='password'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>New Password:</td>
+                    <td>
+                        <input type='password' name='newpassword' [(ngModel)]='newpass'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>New Password again:</td>
+                    <td>
+                        <input type='password' name='newpass' [(ngModel)]='new2'>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='2'>
+                        <button class="btn" (click)='changePass()'>Promeni</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='2' *ngIf="!strong" class='error'>Lozinka nije u dobrom formatu!</td>
+                   </tr>
+
+                   <tr>
+                    <td colspan='2' class='error'>{{message}}</td>
+                   </tr>
+
+            </table>
+            
+        <br />
+        </div>
+
+    </div>
+    <br/>
+
+    <div class="footer">
+        <div class="footer-copyright">
+            Mina Janković Odsek za softversko inženjerstvo Elektrotehničkog fakulteta Univerziteta u
+            Beogradu
+        </div>
+    </div>
+
+</body>

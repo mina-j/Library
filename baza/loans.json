@@ -1,0 +1,25 @@
+[{
+  "_id": {
+    "$oid": "6318b1bda9e73f693ace8903"
+  },
+  "username": "pera",
+  "deadline": "2022-09-20",
+  "returned": "",
+  "book_ID": 3
+},{
+  "_id": {
+    "$oid": "6318b1bda9e73f693ace8904"
+  },
+  "username": "pera",
+  "deadline": "2022-09-20",
+  "returned": "2022-09-13",
+  "book_ID": 4
+},{
+  "_id": {
+    "$oid": "6318b1bda9e73f693ace8905"
+  },
+  "username": "maja",
+  "deadline": "2022-09-20",
+  "returned": "2022-16-10",
+  "book_ID": 2
+}]

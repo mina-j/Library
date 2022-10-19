@@ -1,0 +1,51 @@
+<body>
+    <div id="container">
+      <ul id="menu">
+        <li><a routerLink='/profil'><img height="45px" width="45px" src="/assets/userImg/{{user.picture}}" alt="logo"> </a>
+        </li>
+        <li><a routerLink='/moderator'>Home</a>
+        </li>
+        <li><a routerLink=''>Odjava</a>
+        </li>
+        <li><a routerLink='/zaduzenja'>Zaduzenja</a>
+        </li>
+        <li><a routerLink='/istorija'>Istorija zaduzenja</a>
+        </li>
+        <li><a routerLink='/dodaj'>Dodaj knjigu </a>
+        </li>
+        <li><a routerLink='/search'>Pretraga </a>
+        </li>
+      </ul>
+    </div>
+    <br/>
+    <div class="center">
+        <div class="gallery">
+            <div class="item">
+                <img  src='/assets/knjigeImg/{{book.cover}}' alt='{{book.title}}'>
+                <br/>
+               Naziv: {{book.title}}
+               <br/>
+               Autor: {{book.author}}
+               <br/>
+               Zanr: {{book.genre}}
+               <br/>
+               Izdavac: {{book.publisher}}
+               <br/>
+               Godina: {{book.year}}
+               <br/>
+               Jezik: {{book.lang}}
+               <br/>
+        
+            </div>
+        </div>
+          </div>
+          <br/>
+  
+    <div class="footer">
+      <div class="footer-copyright">
+        Mina Janković Odsek za softversko inženjerstvo Elektrotehničkog fakulteta Univerziteta u
+        Beogradu
+      </div>
+    </div>
+  
+  </body>

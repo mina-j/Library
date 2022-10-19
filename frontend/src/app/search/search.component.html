@@ -1,0 +1,106 @@
+<body>
+
+    <div id="container" *ngIf='!isUser' class='link'>
+        <ul id="menu">
+            <li><a routerLink=''><img height="35px" width="35px" src="/assets/knjigeImg/default.png" alt="logo"> </a>
+            </li>
+            <li><a routerLink='{{type}}'>Home</a>
+            </li>
+            <li><a routerLink='/login'>Login</a>
+            </li>
+            <li><a routerLink='/register'>Registracija</a></li>
+            <li><a routerLink='/search'>Pretraga </a>
+            </li>
+        </ul>
+    </div>
+    <div id="container" *ngIf='isUser && !isAdmin'>
+        <ul id="menu">
+            <li><a routerLink='/profil'><img height="45px" width="45px" src="/assets/userImg/{{user.picture}}" alt="logo"> </a>
+            </li>
+            <li><a routerLink='/{{type}}'>Home</a>
+            </li>
+            <li><a routerLink=''>Odjava</a>
+            </li>
+            <li><a routerLink='/zaduzenja'>Zaduzenja</a>
+            </li>
+            <li><a routerLink='/istorija'>Istorija zaduzenja</a>
+            </li>
+            <li *ngIf="type=='moderator'"><a routerLink='/dodaj'>Dodaj knjigu </a>
+            </li>
+            <li><a routerLink='/search'>Pretraga </a>
+            </li>
+          </ul>
+    </div>
+
+    <div id="container" *ngIf='isAdmin'>
+        <ul id="menu">
+            <li><a routerLink='/profil'><img height="45px" width="45px" src="/assets/userImg/{{user.picture}}"
+                        alt="logo"> </a>
+            </li>
+            <li><a routerLink='/admin'>Home</a>
+            </li>
+            <li><a routerLink=''>Odjava</a>
+            </li>
+            <li><a routerLink='/korisnici'>Korisnici</a>
+            </li>
+            <li><a routerLink='/dodaj'>Dodaj knjigu</a>
+            </li>
+            <li><a routerLink='/search'>Pretraga </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="center">
+        <br />
+        <div class="gallery">
+            <div class="item">
+            <table>
+                <tr>
+                    <td>Ime knjige:</td>
+                    <td>
+                        <input type='text' name='ime' [(ngModel)]='searchParam'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Autor:</td>
+                    <td>
+                        <input type='text' name='password' [(ngModel)]='autorParam'>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='2'>
+                        <br/>
+                        <button class="btn" (click)='search()'>Trazi</button>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+        </div>
+        <br />
+    </div>
+
+    <div class="center">
+    <div class="gallery">
+        <div class="item"  *ngFor='let book of books'>
+            <div (click)="details(book.title)">
+            <img height='600' width="400" src='/assets/knjigeImg/{{book.cover}}' alt='{{book.title}}'>
+            <br/>
+           Naziv: {{book.title}}
+           <br/>
+           Autor: {{book.author}}
+           <br/>
+        </div> 
+        <div *ngIf='isAdmin'><button class="btn" (click)='delete(book.title)'>Obrisi</button></div>  
+        </div>
+    </div>
+      </div>
+<br/>
+    <div class="footer">
+        <div class="footer-copyright">
+            Mina Janković Odsek za softversko inženjerstvo Elektrotehničkog fakulteta Univerziteta u
+            Beogradu
+        </div>
+    </div>
+
+</body>

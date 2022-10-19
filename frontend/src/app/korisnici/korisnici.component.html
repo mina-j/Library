@@ -1,0 +1,146 @@
+<body>
+    <div id="container">
+        <ul id="menu">
+            <li><a routerLink='/profil'><img height="45px" width="45px" src="/assets/userImg/{{cover}}" alt="logo">
+                </a>
+            </li>
+            <li><a routerLink='/admin'>Home</a>
+            </li>
+            <li><a routerLink=''>Odjava</a>
+            </li>
+            <li><a routerLink='/korisnici'>Korisnici</a>
+            </li>
+            <li><a routerLink='/dodaj'>Dodaj knjigu</a>
+            </li>
+            <li><a routerLink='/search'>Pretraga </a>
+            </li>
+        </ul>
+    </div>
+    <br />
+    <h3>Korisnici:</h3>
+    <div class="center" *ngIf="!clicked">
+
+        <div class="gallery">
+            <table class="customTable">
+                <tr>
+                    <th>Korisnicko ime:</th>
+                    <th>Ime:</th>
+                    <th>Prezime:</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr *ngFor='let p of people'>
+                    <td>
+                        {{p.username}}
+                    </td>
+                    <td>
+                        {{p.firstname}}
+                    </td>
+                    <td>
+                        {{p.lastname}}
+                    </td>
+                    <td>
+                        <button class="btn" (click)='kliknuto(p.username)'>Azuriraj</button>
+                    </td>
+                    <td>
+                        <button class="btn" (click)='delete(p.username)'>Izbrisi</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br/>
+        
+<span class='error'>{{message}}</span>
+
+        <br />
+        <a routerLink='/register' class="link">Dodaj korisnika</a>
+
+    </div>
+    <div class="center" *ngIf="clicked==true">
+        <div class="gallery">
+            <table>
+                <tr>
+                    <td>Slika:</td>
+                    <td>
+                        <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+
+                        <div class="file-upload">
+                            <div *ngIf="fileName">
+
+                                <img height="45px" width="45px" src="/assets/knjigeImg/{{fileName}}" alt="slika">
+                            </div>
+                            <div *ngIf="!fileName" class="link">
+                                No file uploaded yet.
+
+                            </div>
+                            <button class="btn" (click)="fileUpload.click()">Izaberi</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ime:</td>
+                    <td>
+                        <input type='text' name='firstname' value='{{user.firstname}}' [(ngModel)]='firstname'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Prezime:</td>
+                    <td>
+                        <input type='text' name='lastname' value='user.lastname' [(ngModel)]='lastname'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Korisnicko ime:</td>
+                    <td>
+                        <input type='text' name='username' value="{{user.username}}" [(ngModel)]='username'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Adresa:</td>
+                    <td>
+                        <input type='text' name='address' value="{{user.address}}" [(ngModel)]='address'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Telefon:</td>
+                    <td>
+                        <input type='text' name='tel' value="{{user.tel}}" [(ngModel)]='tel'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mejl:</td>
+                    <td>
+                        <input type='text' name='email' value="{{user.email}}" [(ngModel)]='email'>
+                    </td>
+                </tr>
+                <br />
+                <tr>
+                    <td>Tip:</td>
+                    <td>
+                        <input type="radio" name="type" value="citalac" [(ngModel)]='type'>Citalac
+                        <input type="radio" name="type" value="moderator" [(ngModel)]='type'>Moderator
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br />
+                        <button class="btn" (click)='azuriraj()'>Sacuvaj</button>
+                    </td>
+                    <td>
+                        <br />
+                        <button class="btn" (click)='kliknuto("")'>Otkazi</button>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br />
+    <div class="footer">
+        <div class="footer-copyright">
+            Mina Janković Odsek za softversko inženjerstvo Elektrotehničkog fakulteta Univerziteta u
+            Beogradu
+        </div>
+    </div>
+
+</body>

@@ -1,0 +1,70 @@
+<body>
+    <div id="container">
+        <ul id="menu">
+            <li><a routerLink='/profil'><img height="45px" width="45px" src="/assets/userImg/{{user.picture}}"
+                        alt="logo"> </a>
+            </li>
+            <li><a routerLink='/admin'>Home</a>
+            </li>
+            <li><a routerLink=''>Odjava</a>
+            </li>
+            <li><a routerLink='/korisnici'>Korisnici</a>
+            </li>
+            <li><a routerLink='/search'>Pretraga </a>
+            </li>
+            <li><a routerLink='/dodaj'>Dodaj knjigu </a>
+            </li>
+        </ul>
+    </div>
+
+    <br />
+    <h3>Korisnici na cekanju:</h3>
+    <div class="center">
+        
+        <div class="gallery">
+    <table class="customTable">
+        <tr>
+            <th>Korisnicko ime:</th>
+            <th>Ime:</th>
+            <th>Prezime:</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr *ngFor='let p of people' >
+            <td >
+                {{p.username}}
+            </td>
+            <td >
+                {{p.firstname}}
+            </td>
+            <td>
+                {{p.lastname}}
+            </td>
+            <td >
+                <button class="btn" (click)='accept(p.username)'>Odobri</button>
+            </td>
+            <td >
+                <button class="btn" (click)='delete(p.username)'>Odbij</button>
+            </td>
+        </tr>
+    </table>
+</div>
+</div>
+<br/>
+    <h3>Definisi br dana za zaduzenje:</h3>
+<input type="text" name="day" [(ngModel)]='day'>
+<br/>
+<button class="btn" (click)='rok()'>Podesi</button>
+<br />
+
+<span class='error'>{{message}}</span>
+
+    <br />
+    <div class="footer">
+        <div class="footer-copyright">
+            Mina Janković Odsek za softversko inženjerstvo Elektrotehničkog fakulteta Univerziteta u
+            Beogradu
+        </div>
+    </div>
+
+</body>

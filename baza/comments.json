@@ -1,0 +1,33 @@
+[{
+  "_id": {
+    "$oid": "63178b72094260fe8fe3cb76"
+  },
+  "username": "pera",
+  "text": "Fenomenalno!!",
+  "ocena": 4,
+  "book_ID": 2
+},{
+  "_id": {
+    "$oid": "63178b72094260fe8fe3cb77"
+  },
+  "username": "pera",
+  "text": "Knjiga nije losa",
+  "ocena": 3,
+  "book_ID": 1
+},{
+  "_id": {
+    "$oid": "63178bbd094260fe8fe3cb7f"
+  },
+  "username": "maja",
+  "text": "Supeer",
+  "ocena": 4,
+  "book_ID": 1
+},{
+  "_id": {
+    "$oid": "63178c3b094260fe8fe3cb85"
+  },
+  "username": "maja",
+  "text": "",
+  "ocena": 5,
+  "book_ID": 3
+}]

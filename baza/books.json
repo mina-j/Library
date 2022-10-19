@@ -1,0 +1,190 @@
+[{
+  "title": "Tvrdjava",
+  "author": "Mesa Selimovic",
+  "genre": "Istorijska fikcija",
+  "publisher": "Vulkan Izdavastvo",
+  "year": 1970,
+  "lang": "bosanski",
+  "cover": "tvrdjava.jpg",
+  "person": [],
+  "num": 10,
+  "comments": []
+},{
+  "title": "Na Drini cuprija",
+  "author": "Ivo Andric",
+  "genre": "Istorijski roman",
+  "publisher": "Vulkan Izdavastvo",
+  "year": 1945,
+  "lang": "srpski",
+  "cover": "cuprija.jpg",
+  "person": [
+    {
+      "username": "maja",
+      "deadline": {
+        "$date": {
+          "$numberLong": "1665878400000"
+        }
+      },
+      "returned": ""
+    },
+    {
+      "username": "pera",
+      "deadline": {
+        "$date": {
+          "$numberLong": "1570838400000"
+        }
+      },
+      "returned": "2019-10-13"
+    }
+  ],
+  "num": 4,
+  "comments": [
+    {
+      "username": "pera",
+      "text": "Fenomenalno!",
+      "ocena": 9,
+      "date": "2019-10-20 14:08:32"
+    },
+    {
+      "username": "maja",
+      "text": "Nista spec",
+      "ocena": "4",
+      "date": "2022-10-11 11:56:12"
+    }
+  ]
+},{
+  "title": "Prokleta avlija",
+  "author": "Ivo Andric",
+  "genre": "Roman",
+  "publisher": "Vulkan Izdavastvo",
+  "year": 1954,
+  "lang": "srpski",
+  "cover": "cover.jpg",
+  "person": [
+    {
+      "username": "pera",
+      "deadline": {
+        "$date": {
+          "$numberLong": "1663632000000"
+        }
+      },
+      "returned": ""
+    },
+    {
+      "username": "maja",
+      "deadline": {
+        "$date": {
+          "$numberLong": "1664496000000"
+        }
+      },
+      "returned": ""
+    }
+  ],
+  "num": 9,
+  "comments": [
+    {
+      "username": "maja",
+      "text": "",
+      "ocena": 10,
+      "date": "2022-09-28 19:09:22"
+    }
+  ]
+},{
+  "title": "Dervis i smrt",
+  "author": "Mesa Selimovic",
+  "genre": "Roman",
+  "publisher": "Vulkan Izdavastvo",
+  "year": 1966,
+  "lang": "srpskohrvatski",
+  "cover": "cover.jpg",
+  "person": [
+    {
+      "username": "pera",
+      "deadline": {
+        "$date": {
+          "$numberLong": "1663632000000"
+        }
+      },
+      "returned": "2022-09-13"
+    },
+    {
+      "username": "maja",
+      "deadline": {
+        "$date": {
+          "$numberLong": "1665360000000"
+        }
+      },
+      "returned": "2022-09-10"
+    },
+    {
+      "username": "pera",
+      "deadline": {
+        "$date": {
+          "$numberLong": "1592784000000"
+        }
+      },
+      "returned": "2020-06-01"
+    },
+    {
+      "username": "maja",
+      "deadline": {
+        "$date": {
+          "$numberLong": "1664582400000"
+        }
+      },
+      "returned": ""
+    }
+  ],
+  "num": 1,
+  "comments": []
+},{
+  "title": "Stranac",
+  "author": "Alber Kami",
+  "genre": "Roman",
+  "publisher": "Vulkan Izdavastvo",
+  "year": 1942,
+  "lang": "srpski",
+  "cover": "stranac.jpg",
+  "person": [
+    {
+      "username": "pera",
+      "deadline": {
+        "$date": {
+          "$numberLong": "1665360000000"
+        }
+      },
+      "returned": ""
+    },
+    {
+      "username": "maja",
+      "deadline": {
+        "$date": {
+          "$numberLong": "1613606400000"
+        }
+      },
+      "returned": "2021-02-02"
+    },
+    {
+      "username": "maja",
+      "deadline": {
+        "$date": {
+          "$numberLong": "1664841600000"
+        }
+      },
+      "returned": ""
+    }
+  ],
+  "num": 6,
+  "comments": []
+},{
+  "title": "Karte na sto",
+  "author": "Agata Kristi",
+  "genre": "Kriminalistika",
+  "publisher": "Laguna",
+  "year": 2015,
+  "lang": "srpski",
+  "cover": "karte_na_sto.jpg",
+  "person": [],
+  "num": 0,
+  "comments": []
+}]

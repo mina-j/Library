@@ -1,0 +1,129 @@
+<body>
+    <div id="container" *ngIf='!isAdmin'>
+      <ul id="menu">
+        <li><a routerLink='/profil'><img height="45px" width="45px" src="/assets/userImg/{{picture}}" alt="logo"> </a>
+        </li>
+        <li><a routerLink='/citalac'>Home</a>
+        </li>
+        <li><a routerLink=''>Odjava</a>
+        </li>
+        <li><a routerLink='/zaduzenja'>Zaduzenja</a>
+        </li>
+        <li><a routerLink='/istorija'>Istorija zaduzenja</a>
+        </li>
+        <li><a routerLink='/dodaj'>Dodaj knjigu </a>
+        </li>
+        <li><a routerLink='/search'>Pretraga </a>
+        </li>
+      </ul>
+    </div>
+
+    <div id="container" *ngIf='isAdmin'>
+        <ul id="menu">
+            <li><a routerLink='/profil'><img height="45px" width="45px" src="/assets/userImg/{{picture}}"
+                        alt="logo"> </a>
+            </li>
+            <li><a routerLink='/admin'>Home</a>
+            </li>
+            <li><a routerLink=''>Odjava</a>
+            </li>
+            <li><a routerLink='/korisnici'>Korisnici</a>
+            </li>
+            <li><a routerLink='/dodaj'>Dodaj knjigu</a>
+            </li>
+            <li><a routerLink='/search'>Pretraga </a>
+            </li>
+        </ul>
+    </div>
+    <br/>
+ 
+
+
+
+          <div class="center">
+            <div class="gallery">
+            <table>
+                <tr>
+                    <td>Slika:</td>
+                    <td>
+                        <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+
+                        <div class="file-upload">                            
+                            <div *ngIf="fileName">
+
+                                <img height="45px" width="45px" src="/assets/knjigeImg/{{fileName}}" alt="slika">
+                            </div>
+                            <div *ngIf="!fileName" class="link">
+                                No file uploaded yet.
+                                
+                            </div>
+                            <button  class="btn" (click)="fileUpload.click()">Izaberi</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Naziv:</td>
+                    <td>
+                        <input type='text' name='title' [(ngModel)]='title'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Autor:</td>
+                    <td>
+                        <input type='text' name='author' [(ngModel)]='author'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Zanr:</td>
+                    <td>
+                        <input type='text' name='genre' [(ngModel)]='genre'> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>Izdavac:</td>
+                    <td>
+                        <input type='text' name='publisher' [(ngModel)]='publisher'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Godina izdanja:</td>
+                    <td>
+                        <input type='text' name='year' [(ngModel)]='year'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Jezik:</td>
+                    <td>
+                        <input type='text' name='lang' [(ngModel)]='lang'>
+                    </td>
+                </tr>
+                <br/>
+                <tr>
+                    <td>Broj na stanju:</td>
+                    <td>
+                        <input type="text" name="num" [(ngModel)]='num'>
+                    </td>
+                </tr>
+                <tr >
+                    <td colspan='2' class="center">
+                        <br/>
+                        <button class="btn" (click)='add()'>Dodaj</button>
+                    </td>
+                    
+                </tr>
+               <tr>
+                 <td class='err' colspan='2'>{{message}}</td>
+                </tr>
+            </table>
+        </div>
+        </div>
+        <br/>
+  
+    <div class="footer">
+      <div class="footer-copyright">
+        Mina Janković Odsek za softversko inženjerstvo Elektrotehničkog fakulteta Univerziteta u
+        Beogradu
+      </div>
+    </div>
+  
+  </body>

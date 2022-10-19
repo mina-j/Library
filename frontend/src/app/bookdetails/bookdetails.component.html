@@ -1,0 +1,177 @@
+<body>
+    <div id="container" *ngIf='!isAdmin'>
+        <ul id="menu">
+            <li><a routerLink='/profil'><img height="45px" width="45px" src="/assets/userImg/{{picture}}" alt="logo">
+                </a>
+            </li>
+            <li><a routerLink='/{{type}}'>Home</a>
+            </li>
+            <li><a routerLink=''>Odjava</a>
+            </li>
+            <li><a routerLink='/zaduzenja'>Zaduzenja</a>
+            </li>
+            <li><a routerLink='/istorija'>Istorija zaduzenja</a>
+            </li>
+            <li *ngIf="type=='moderator'"><a routerLink='/dodaj'>Dodaj knjigu </a>
+            </li>
+            <li><a routerLink='/search'>Pretraga </a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="container" *ngIf='isAdmin'>
+        <ul id="menu">
+            <li><a routerLink='/profil'><img height="45px" width="45px" src="/assets/userImg/{{picture}}"
+                        alt="logo"> </a>
+            </li>
+            <li><a routerLink='/admin'>Home</a>
+            </li>
+            <li><a routerLink=''>Odjava</a>
+            </li>
+            <li><a routerLink='/korisnici'>Korisnici</a>
+            </li>
+            <li><a routerLink='/dodaj'>Dodaj knjigu</a>
+            </li>
+            <li><a routerLink='/search'>Pretraga </a>
+            </li>
+        </ul>
+    </div>
+
+    <br/>
+    <span *ngIf="(type=='moderator' || type=='admin') && !clicked"><button class="btn" (click)='kliknuto()'>Azuriraj</button> </span>
+    <br/>
+    <br/>
+    <div class="center" *ngIf="!clicked">
+        <div class="gallery">
+            <img height='400' width="280" src='/assets/knjigeImg/{{mybook.cover}}' alt='{{mybook.title}}'>
+            <h4> {{mybook.title}}</h4>
+            <h5>{{mybook.author}}</h5>
+            <br />
+            <div class="text">
+                Zanr:  {{mybook.genre}}
+                <br />
+                Izdavac: {{mybook.publisher}}
+                <br />
+                Godina:  {{mybook.year}}
+                <br />
+                Jezik:  {{mybook.lang}}
+                <br />
+                Na stanju {{mybook.num}} komada.
+                <br />
+                <span *ngIf="mybook.score>0"> Prosecna ocena:<span class="ocena"> {{mybook.score}}</span></span>
+                <br />
+               <h3> Komentari:</h3>
+                <div *ngIf="mybook.comments.length" class="position" >
+                    <div *ngFor='let c of mybook.comments' class="item">
+                        &nbsp;{{c.username}} kaze: {{c.text}}
+                        <br/>
+                        &nbsp;Ocena:<img class="ocena" height='20px' width="20px" src='/assets/star.png'> {{c.ocena}}
+                        <br/>
+                        &nbsp; Datum: {{c.date}}
+                    </div>
+                </div>
+                <div *ngIf="mybook.comments.length==0">
+                    <span class='error'>Nema komentara.</span>
+                </div>
+                <br />
+                <div *ngIf='canLoan && !isAdmin'>
+                    <button class="btn" (click)='takeBook()'>Zaduzi</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="center" *ngIf="clicked">
+        <div class="gallery">
+            <table>
+                <tr>
+                    <td>Slika:</td>
+                    <td>
+                        <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+
+                        <div class="file-upload">                            
+                            <div *ngIf="fileName">
+
+                                <img height="45px" width="45px" src="/assets/knjigeImg/{{fileName}}" alt="slika">
+                            </div>
+                            <div *ngIf="!fileName" class="link">
+                                No file uploaded yet.
+                                
+                            </div>
+                            <button  class="btn" (click)="fileUpload.click()">Izaberi</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Naziv:</td>
+                    <td>
+                        <input type='text' name='title' value="{{mybook.title}}" [(ngModel)]='title'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Autor:</td>
+                    <td>
+                        <input type='text' name='author' value='mybook.author' [(ngModel)]='author'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Zanr:</td>
+                    <td>
+                        <input type='text' name='genre' value="mybook.genre" [(ngModel)]='genre'> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>Izdavac:</td>
+                    <td>
+                        <input type='text' name='publisher' value="mybook.publisher" [(ngModel)]='publisher'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Godina izdanja:</td>
+                    <td>
+                        <input type='text' name='year' value="mybook.year"  [(ngModel)]='year'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Jezik:</td>
+                    <td>
+                        <input type='text' name='lang' value="mybook.lang" [(ngModel)]='lang'>
+                    </td>
+                </tr>
+                <br/>
+                <tr>
+                    <td>Broj na stanju:</td>
+                    <td>
+                        <input type="text" name="num" value="mybook.num" [(ngModel)]='num'>
+                    </td>
+                </tr>
+                <tr >
+                    <td >
+                    <br/>
+                        <button class="btn" (click)='azuriraj()'>Sacuvaj</button>
+                    </td>
+                    <td >
+                        <br/>
+                        <button class="btn" (click)='kliknuto()'>Otkazi</button>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br/>
+    <span class='error'>{{message}}</span>
+    <br />
+    <br/>
+    <div class="footer">
+        <div class="footer-copyright">
+            Mina Janković Odsek za softversko inženjerstvo Elektrotehničkog fakulteta Univerziteta u
+            Beogradu
+        </div>
+    </div>
+
+</body>

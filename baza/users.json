@@ -1,0 +1,56 @@
+[{
+  "username": "maja",
+  "password": "maja123",
+  "address": "Glasinacka 36, Beograd",
+  "tel": "0601234567",
+  "email": "maja@gmail.com",
+  "picture": "glasses.jpg",
+  "type": "citalac",
+  "firstname": "Marija",
+  "lastname": "Maric",
+  "accepted": 1
+},{
+  "username": "ana",
+  "password": "ana123",
+  "address": "Milana Rakica 122, Beograd",
+  "tel": "0611134567",
+  "email": "a@gmail.com",
+  "picture": "girl.jpg",
+  "type": "moderator",
+  "firstname": "Ana",
+  "lastname": "Andjelkovic",
+  "accepted": 1
+},{
+  "username": "paja",
+  "password": "paja123",
+  "address": "Ustanicka 111, Beograd",
+  "tel": "0600004567",
+  "email": "paja@gmail.com",
+  "picture": "default.png",
+  "type": "admin",
+  "firstname": "Pavle",
+  "lastname": "Pajic",
+  "accepted": 14
+},{
+  "username": "pera",
+  "password": "pera123",
+  "address": "Glasinacka 56, Beograd",
+  "tel": "0601234447",
+  "email": "pera@gmail.com",
+  "picture": "glasses.jpg",
+  "type": "citalac",
+  "firstname": "Petar",
+  "lastname": "Erica",
+  "accepted": 1
+},{
+  "username": "aki",
+  "password": "akica!1A",
+  "firstname": "Akica",
+  "lastname": "Akicevic",
+  "address": "Obilicev Venac 30",
+  "tel": "0632468576",
+  "email": "aki@gmail.com",
+  "picture": "book.jpg",
+  "type": "citalac",
+  "accepted": 0
+}]
