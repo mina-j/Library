@@ -25,15 +25,16 @@ export class SearchComponent implements OnInit {
       this.isUser = true;
       this.userservis.getUser(localStorage.getItem("username")).subscribe((user: User) => {
         this.user = user;
+        this.type=localStorage.getItem("type");
+
+    if(this.type=="admin"){this.isAdmin=true;}else this.isAdmin=false;
       })
     }
     else {
       this.isUser = false;
     }
 
-    this.type=localStorage.getItem("type");
-
-    if(this.type=="admin"){this.isAdmin=true;}else this.isAdmin=false;
+    
 
     this.searchParam = '';
     this.autorParam = '';
